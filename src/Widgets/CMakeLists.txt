@@ -1,0 +1,8 @@
+set(SOURCE_FILES
+	${SOURCE_FILES}
+	${CMAKE_CURRENT_SOURCE_DIR}/RecipientsPane.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/MsgControlsPane.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/RecipientsTreeView.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/LastMsgsTreeView.cpp
+	PARENT_SCOPE
+)
