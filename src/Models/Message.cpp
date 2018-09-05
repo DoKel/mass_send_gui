@@ -1,4 +1,6 @@
 #include "Message.hpp"
+#include <sstream>
+#include "../util/IconsLoader.hpp"
 
 Message::Message():
 priority(Message::Priority::REGULAR),
@@ -21,4 +23,67 @@ date(_date)
 
 Message::~Message(){
 
+}
+
+std::vector<Glib::ustring> Message::splitAndJsonify(){
+	//TODO replace special characters like \n
+	std::vector<Glib::ustring> ret;
+
+	std::ostringstream strIn;
+
+	for(auto recipient: recipients){
+		strIn = std::ostringstream ("");
+
+		strIn << "{";
+
+		strIn << "\"recipient\": ";
+		strIn << "\"" << recipient << "\"";
+
+		strIn << ",";
+
+		strIn << "\"text\": ";
+		strIn << "\"" << text << "\"";
+
+		strIn << ",";
+
+		strIn << "\"prirority\": ";
+		strIn << "\"" << PriorityUtils::toString(priority) << "\"";
+
+		strIn << "}";
+		ret.push_back(strIn.str());
+	}
+
+	return ret;
+}
+
+
+Glib::ustring Message::PriorityUtils::toString(Priority prior){
+	switch(prior){
+		case Message::Priority::IMPORTANT:
+			return "Important";
+			break;
+		case Message::Priority::INFO:
+			return "Info";
+			break;
+		case Message::Priority::REGULAR: /*passthrough*/
+		default:
+			return "Regular";
+			break;
+	}
+}
+
+
+Glib::RefPtr<Gdk::Pixbuf> Message::PriorityUtils::getIcon(Priority prior){
+	switch(prior){
+		case Message::Priority::IMPORTANT:
+			return IconsLoader::getIcon(IconsLoader::IconName::IMPORTANT);
+			break;
+		case Message::Priority::INFO:
+			return IconsLoader::getIcon(IconsLoader::IconName::INFO);
+			break;
+		case Message::Priority::REGULAR: /*passthrough*/
+		default:
+			return IconsLoader::getIcon(IconsLoader::IconName::REGULAR);
+			break;
+	}
 }

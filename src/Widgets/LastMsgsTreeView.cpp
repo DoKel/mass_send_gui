@@ -3,7 +3,6 @@
 #include <vector>
 #include <gtkmm/cellrendererpixbuf.h>
 #include "../util/IconsLoader.hpp"
-#include <iostream> //TODO remove
 
 const Glib::ustring LastMsgsTreeView::DATE_FORMAT = "%D";
 
@@ -121,22 +120,7 @@ void LastMsgsTreeView::iconDataFunc(Gtk::CellRenderer* renderer,
 	Gtk::CellRendererPixbuf* pixbuf_renderer = dynamic_cast<Gtk::CellRendererPixbuf*>(renderer);
 	if(pixbuf_renderer){
 		auto prior = row.get_value(columns.colMsg).priority;
-
-		switch(prior){
-			case Message::Priority::IMPORTANT:
-				pixbuf_renderer->property_pixbuf() =
-				IconsLoader::getIcon(IconsLoader::IconName::IMPORTANT);
-				break;
-			case Message::Priority::INFO:
-				pixbuf_renderer->property_pixbuf() =
-				IconsLoader::getIcon(IconsLoader::IconName::INFO);
-				break;
-			case Message::Priority::REGULAR: /*passthrough*/
-			default:
-				pixbuf_renderer->property_pixbuf() =
-				IconsLoader::getIcon(IconsLoader::IconName::REGULAR);
-				break;
-		}
+		pixbuf_renderer->property_pixbuf() = Message::PriorityUtils::getIcon(prior);
 	}
 }
 

@@ -2,6 +2,7 @@
 #define MSG_CONTROLS_PANE
 
 #include "LastMsgsTreeView.hpp"
+#include "MsgPriorityChooser.hpp"
 #include <gtkmm/box.h>
 #include <gtkmm/button.h>
 #include <gtkmm/scrolledwindow.h>
@@ -22,13 +23,21 @@ public:
 
 	Glib::ustring getNewMsgText();
 	void addNewMsg(Message msg);
-protected:
-	Gtk::ScrolledWindow scrolledWindow;
-	LastMsgsTreeView lastMsgs;
-	Gtk::Label lastMsgTitleLabel;
-	Gtk::Label newMsgTitleLabel;
 
-	Gtk::TextView newMsgText;
+	typedef sigc::signal<void, Glib::ustring> SendButtonClickedSignalType;
+	SendButtonClickedSignalType signal_send_button_clicked();
+
+protected:
+	SendButtonClickedSignalType sendButtonClickedSignal;
+
+	Gtk::ScrolledWindow scrolledWindow;
+		Gtk::Label lastMsgTitleLabel;
+			LastMsgsTreeView lastMsgs;
+		Gtk::Label newMsgTitleLabel;
+			Gtk::TextView newMsgText;
+			Gtk::Box sendAndControlsBox;
+				Gtk::Button sendButton;
+				//MsgPriorityChooser priorityChooser;
 
 	std::unique_ptr<ShowMessage> showMessageWindow;
 
@@ -46,6 +55,7 @@ protected:
 
 	void on_this_show();
 	void on_this_hide();
+	void on_send_button_clicked();
 	bool onNewMsgTextFocus(GdkEventFocus* focus_event);
 	bool onNewMsgTextFocusLoss(GdkEventFocus* focus_event);
 };

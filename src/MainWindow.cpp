@@ -1,7 +1,7 @@
 #include "MainWindow.hpp"
 #include "util/IconsLoader.hpp"
+#include <iostream> //TODO remove
 #include "Models/Message.hpp"
-#include <iostream>
 #include <glibmm/ustring.h>
 #include <glibmm/date.h>
 #include <vector>
@@ -10,8 +10,7 @@
 
 const int MainWindow::WIN_PADDING = 10;
 
-MainWindow::MainWindow(Glib::ustring title):
-sendAndControlsBox(Gtk::ORIENTATION_HORIZONTAL)
+MainWindow::MainWindow(Glib::ustring title)
 {
 	int min_width = WIN_PADDING*2+RecipientsPane::minWidth+MsgControlsPane::minWidth;
 
@@ -27,16 +26,7 @@ sendAndControlsBox(Gtk::ORIENTATION_HORIZONTAL)
 	topLevelPane.signal_button_release_event().connect(sigc::mem_fun(*this,
 		 &MainWindow::on_release_odd_event));
 
-	msgControlsPane.pack_start(sendAndControlsBox, Gtk::PACK_SHRINK);
 
-	sendAndControlsBox.pack_start(sendButton, Gtk::PACK_EXPAND_PADDING);
-	sendButton.set_halign(Gtk::ALIGN_END);
-
-	auto img = Gtk::manage(new Gtk::Image()); //TODO is that correct? Will it manage?..
-	img->set(IconsLoader::getIcon(IconsLoader::IconName::SEND));
-	sendButton.set_image(*img);
-
-	sendAndControlsBox.show_all();
 	topLevelPane.show();
 	recipientsPane.show();
 	msgControlsPane.show();
@@ -45,8 +35,8 @@ sendAndControlsBox(Gtk::ORIENTATION_HORIZONTAL)
 	signal_configure_event().connect(sigc::mem_fun(*this,
 		 &MainWindow::on_configure_event));
 
-	sendButton.signal_clicked().connect(sigc::mem_fun(*this,
-		 &MainWindow::sendMessage));
+	msgControlsPane.signal_send_button_clicked().connect(sigc::mem_fun(*this,
+		 &MainWindow::on_send_button_clicked));
 }
 
 MainWindow::~MainWindow()
@@ -87,7 +77,11 @@ void MainWindow::fix_pane_state(int new_width){
 	}
 }
 
-void MainWindow::sendMessage(){
+typename MainWindow::SendSignalType MainWindow::signal_send(){
+	return sendSignal;
+}
+
+void MainWindow::on_send_button_clicked(Glib::ustring msgText){
 	std::vector<Glib::ustring> recipients = recipientsPane.getRecipients();
 
 	if(recipients.size() == 0){
@@ -100,9 +94,7 @@ void MainWindow::sendMessage(){
 	}
 
 
-	Glib::ustring text = msgControlsPane.getNewMsgText();
-
-	if(text == ""){
+	if(msgText == ""){
 		Gtk::MessageDialog dialog(*this, "Can't  send");
 		dialog.set_secondary_text(
 				"Sorry, I can't send empty message!");
@@ -117,10 +109,9 @@ void MainWindow::sendMessage(){
 	auto date = Glib::Date(timePtr->tm_mday,
 		Glib::Date::Month(1+timePtr->tm_mon), 1900+timePtr->tm_year);
 
-	Message msg = Message(Message::Priority::REGULAR, recipients, text, date);
+	Message msg = Message(Message::Priority::REGULAR, recipients, msgText, date);
 
-	showMessageWindow.reset(new ShowMessage(msg));
-	showMessageWindow->show_all();
+	msgControlsPane.addNewMsg(msg); //TODO move out, add check if success
 
-	msgControlsPane.addNewMsg(msg);
+	sendSignal.emit(msg);
 }

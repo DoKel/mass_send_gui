@@ -1,4 +1,5 @@
 #include "MsgControlsPane.hpp"
+#include "../util/IconsLoader.hpp"
 #include <gtkmm/image.h>
 #include <gdkmm/pixbuf.h>
 
@@ -16,7 +17,8 @@ const int MsgControlsPane::minScrolledHeight = 300;
 const int MsgControlsPane::minTextViewHeight = 150;
 
 MsgControlsPane::MsgControlsPane():
-Gtk::Box(Gtk::ORIENTATION_VERTICAL, MsgControlsPane::SPACING)
+Gtk::Box(Gtk::ORIENTATION_VERTICAL, MsgControlsPane::SPACING),
+sendAndControlsBox(Gtk::ORIENTATION_HORIZONTAL)
 {
 	auto minElementWidth = minWidth - leftRightMargin*2;
 
@@ -46,11 +48,23 @@ Gtk::Box(Gtk::ORIENTATION_VERTICAL, MsgControlsPane::SPACING)
 	newMsgText.signal_focus_out_event().connect(sigc::mem_fun(*this,
 			&MsgControlsPane::onNewMsgTextFocusLoss));
 
+	this->pack_start(sendAndControlsBox, Gtk::PACK_SHRINK);
+
+	sendAndControlsBox.pack_start(sendButton, Gtk::PACK_EXPAND_PADDING);
+	sendButton.set_halign(Gtk::ALIGN_END);
+
+	auto img = Gtk::manage(new Gtk::Image()); //TODO is that correct? Will it manage?..
+	img->set(IconsLoader::getIcon(IconsLoader::IconName::SEND));
+	sendButton.set_image(*img);
+
 	/* Connect Pane's signals*/
 	this->signal_show().connect(sigc::mem_fun(*this,
 		&MsgControlsPane::on_this_show));
 	this->signal_hide().connect(sigc::mem_fun(*this,
 		&MsgControlsPane::on_this_hide));
+
+	sendButton.signal_clicked().connect(sigc::mem_fun(*this,
+		 &MsgControlsPane::on_send_button_clicked));
 }
 
 MsgControlsPane::~MsgControlsPane(){
@@ -62,6 +76,7 @@ void MsgControlsPane::on_this_show(){
 	lastMsgTitleLabel.show();
 	newMsgTitleLabel.show();
 	newMsgText.show();
+	sendAndControlsBox.show_all();
 }
 
 void MsgControlsPane::on_this_hide(){
@@ -106,4 +121,13 @@ Glib::ustring MsgControlsPane::getNewMsgText(){
 
 void MsgControlsPane::addNewMsg(Message msg){
 	lastMsgs.addNewMsg(msg);
+}
+
+typename MsgControlsPane::SendButtonClickedSignalType
+MsgControlsPane::signal_send_button_clicked(){
+	return sendButtonClickedSignal;
+}
+
+void MsgControlsPane::on_send_button_clicked(){
+	sendButtonClickedSignal.emit(getNewMsgText());
 }

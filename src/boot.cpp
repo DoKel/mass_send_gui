@@ -1,3 +1,4 @@
+#include <iostream> //TODO remove
 #include "MainApplication.hpp"
 #include "util/IconsLoader.hpp"
 

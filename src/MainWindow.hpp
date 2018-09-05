@@ -1,6 +1,7 @@
 #ifndef MAIN_WINDOW_H
 #define MAIN_WINDOW_H
 
+#include <vector>
 #include <gtkmm/box.h>
 #include <gtkmm/button.h>
 #include <gtkmm/window.h>
@@ -14,9 +15,14 @@ class MainWindow : public Gtk::Window
 {
 public:
 	MainWindow(Glib::ustring);
-	virtual ~MainWindow();
+	virtual ~MainWindow();public:
+
+	typedef sigc::signal<void, Message> SendSignalType;
+	SendSignalType signal_send();
 
 protected:
+	SendSignalType sendSignal;
+
 	//Signal handlers:
 	void on_action_others();
 	void on_action_toggle();
@@ -27,17 +33,12 @@ protected:
 	RecipientsPane recipientsPane;
 	MsgControlsPane msgControlsPane;
 
-	Gtk::Box sendAndControlsBox;
-	Gtk::Button sendButton;
-
-	std::unique_ptr<ShowMessage> showMessageWindow;
-
 	static const int WIN_PADDING;
 
 	bool on_release_odd_event(GdkEventButton*);
 	bool on_configure_event(GdkEventConfigure*);
 
-	void sendMessage();
+	void on_send_button_clicked(Glib::ustring);
 
 	void fix_pane_state(int new_width = -1);
 };

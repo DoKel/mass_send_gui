@@ -6,6 +6,7 @@
 #include <glibmm/ustring.h>
 
 #include "MainWindow.hpp"
+#include "Models/Message.hpp"
 
 
 class MainApplication: public Gtk::Application{
@@ -26,6 +27,8 @@ private:
 	void create_window();
 
 	void on_window_hide(Gtk::Window* window);
+
+	void sendMessage(Message);
 
 	static const Glib::ustring application_name;
 };

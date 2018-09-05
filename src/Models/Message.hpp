@@ -4,6 +4,7 @@
 #include <glibmm/ustring.h>
 #include <glibmm/date.h>
 #include <vector>
+#include <gtkmm/cellrendererpixbuf.h>
 
 class Message{
 public:
@@ -11,9 +12,18 @@ public:
 		REGULAR, INFO, IMPORTANT
 	};
 
+	class PriorityUtils{
+	public:
+		static Glib::ustring toString(Priority);
+		static Glib::RefPtr<Gdk::Pixbuf> getIcon(Priority);
+	};
+
 	Message();
 	Message(Priority, std::vector<Glib::ustring>, Glib::ustring, Glib::Date);
 	virtual ~Message();
+
+
+	std::vector<Glib::ustring> splitAndJsonify();
 
 //protected:
 	Priority priority;
