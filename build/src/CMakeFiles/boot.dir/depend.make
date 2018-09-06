@@ -8,7 +8,6 @@ src/CMakeFiles/boot.dir/MainApplication.cpp.o: ../src/Models/Message.hpp
 src/CMakeFiles/boot.dir/MainApplication.cpp.o: ../src/Widgets/CustomTreeView.hpp
 src/CMakeFiles/boot.dir/MainApplication.cpp.o: ../src/Widgets/LastMsgsTreeView.hpp
 src/CMakeFiles/boot.dir/MainApplication.cpp.o: ../src/Widgets/MsgControlsPane.hpp
-src/CMakeFiles/boot.dir/MainApplication.cpp.o: ../src/Widgets/MsgPriorityChooser.hpp
 src/CMakeFiles/boot.dir/MainApplication.cpp.o: ../src/Widgets/RecipientsPane.hpp
 src/CMakeFiles/boot.dir/MainApplication.cpp.o: ../src/Widgets/RecipientsTreeView.hpp
 src/CMakeFiles/boot.dir/MainApplication.cpp.o: ../src/Windows/ShowMessage.hpp
@@ -788,6 +787,7 @@ src/CMakeFiles/boot.dir/MainApplication.cpp.o: /usr/include/gtkmm-3.0/gtkmm/chil
 src/CMakeFiles/boot.dir/MainApplication.cpp.o: /usr/include/gtkmm-3.0/gtkmm/childpropertyproxy_base.h
 src/CMakeFiles/boot.dir/MainApplication.cpp.o: /usr/include/gtkmm-3.0/gtkmm/clipboard.h
 src/CMakeFiles/boot.dir/MainApplication.cpp.o: /usr/include/gtkmm-3.0/gtkmm/combobox.h
+src/CMakeFiles/boot.dir/MainApplication.cpp.o: /usr/include/gtkmm-3.0/gtkmm/comboboxtext.h
 src/CMakeFiles/boot.dir/MainApplication.cpp.o: /usr/include/gtkmm-3.0/gtkmm/container.h
 src/CMakeFiles/boot.dir/MainApplication.cpp.o: /usr/include/gtkmm-3.0/gtkmm/editable.h
 src/CMakeFiles/boot.dir/MainApplication.cpp.o: /usr/include/gtkmm-3.0/gtkmm/entry.h
@@ -932,7 +932,6 @@ src/CMakeFiles/boot.dir/MainWindow.cpp.o: ../src/Models/Message.hpp
 src/CMakeFiles/boot.dir/MainWindow.cpp.o: ../src/Widgets/CustomTreeView.hpp
 src/CMakeFiles/boot.dir/MainWindow.cpp.o: ../src/Widgets/LastMsgsTreeView.hpp
 src/CMakeFiles/boot.dir/MainWindow.cpp.o: ../src/Widgets/MsgControlsPane.hpp
-src/CMakeFiles/boot.dir/MainWindow.cpp.o: ../src/Widgets/MsgPriorityChooser.hpp
 src/CMakeFiles/boot.dir/MainWindow.cpp.o: ../src/Widgets/RecipientsPane.hpp
 src/CMakeFiles/boot.dir/MainWindow.cpp.o: ../src/Widgets/RecipientsTreeView.hpp
 src/CMakeFiles/boot.dir/MainWindow.cpp.o: ../src/Windows/ShowMessage.hpp
@@ -1677,6 +1676,7 @@ src/CMakeFiles/boot.dir/MainWindow.cpp.o: /usr/include/gtkmm-3.0/gtkmm/childprop
 src/CMakeFiles/boot.dir/MainWindow.cpp.o: /usr/include/gtkmm-3.0/gtkmm/childpropertyproxy_base.h
 src/CMakeFiles/boot.dir/MainWindow.cpp.o: /usr/include/gtkmm-3.0/gtkmm/clipboard.h
 src/CMakeFiles/boot.dir/MainWindow.cpp.o: /usr/include/gtkmm-3.0/gtkmm/combobox.h
+src/CMakeFiles/boot.dir/MainWindow.cpp.o: /usr/include/gtkmm-3.0/gtkmm/comboboxtext.h
 src/CMakeFiles/boot.dir/MainWindow.cpp.o: /usr/include/gtkmm-3.0/gtkmm/container.h
 src/CMakeFiles/boot.dir/MainWindow.cpp.o: /usr/include/gtkmm-3.0/gtkmm/dialog.h
 src/CMakeFiles/boot.dir/MainWindow.cpp.o: /usr/include/gtkmm-3.0/gtkmm/editable.h
@@ -3467,7 +3467,6 @@ src/CMakeFiles/boot.dir/Widgets/MsgControlsPane.cpp.o: ../src/Widgets/CustomTree
 src/CMakeFiles/boot.dir/Widgets/MsgControlsPane.cpp.o: ../src/Widgets/LastMsgsTreeView.hpp
 src/CMakeFiles/boot.dir/Widgets/MsgControlsPane.cpp.o: ../src/Widgets/MsgControlsPane.cpp
 src/CMakeFiles/boot.dir/Widgets/MsgControlsPane.cpp.o: ../src/Widgets/MsgControlsPane.hpp
-src/CMakeFiles/boot.dir/Widgets/MsgControlsPane.cpp.o: ../src/Widgets/MsgPriorityChooser.hpp
 src/CMakeFiles/boot.dir/Widgets/MsgControlsPane.cpp.o: ../src/Widgets/RecipientsTreeView.hpp
 src/CMakeFiles/boot.dir/Widgets/MsgControlsPane.cpp.o: ../src/Windows/ShowMessage.hpp
 src/CMakeFiles/boot.dir/Widgets/MsgControlsPane.cpp.o: ../src/util/IconsLoader.hpp
@@ -4210,6 +4209,7 @@ src/CMakeFiles/boot.dir/Widgets/MsgControlsPane.cpp.o: /usr/include/gtkmm-3.0/gt
 src/CMakeFiles/boot.dir/Widgets/MsgControlsPane.cpp.o: /usr/include/gtkmm-3.0/gtkmm/childpropertyproxy_base.h
 src/CMakeFiles/boot.dir/Widgets/MsgControlsPane.cpp.o: /usr/include/gtkmm-3.0/gtkmm/clipboard.h
 src/CMakeFiles/boot.dir/Widgets/MsgControlsPane.cpp.o: /usr/include/gtkmm-3.0/gtkmm/combobox.h
+src/CMakeFiles/boot.dir/Widgets/MsgControlsPane.cpp.o: /usr/include/gtkmm-3.0/gtkmm/comboboxtext.h
 src/CMakeFiles/boot.dir/Widgets/MsgControlsPane.cpp.o: /usr/include/gtkmm-3.0/gtkmm/container.h
 src/CMakeFiles/boot.dir/Widgets/MsgControlsPane.cpp.o: /usr/include/gtkmm-3.0/gtkmm/editable.h
 src/CMakeFiles/boot.dir/Widgets/MsgControlsPane.cpp.o: /usr/include/gtkmm-3.0/gtkmm/entry.h
@@ -6861,7 +6861,6 @@ src/CMakeFiles/boot.dir/boot.cpp.o: ../src/Models/Message.hpp
 src/CMakeFiles/boot.dir/boot.cpp.o: ../src/Widgets/CustomTreeView.hpp
 src/CMakeFiles/boot.dir/boot.cpp.o: ../src/Widgets/LastMsgsTreeView.hpp
 src/CMakeFiles/boot.dir/boot.cpp.o: ../src/Widgets/MsgControlsPane.hpp
-src/CMakeFiles/boot.dir/boot.cpp.o: ../src/Widgets/MsgPriorityChooser.hpp
 src/CMakeFiles/boot.dir/boot.cpp.o: ../src/Widgets/RecipientsPane.hpp
 src/CMakeFiles/boot.dir/boot.cpp.o: ../src/Widgets/RecipientsTreeView.hpp
 src/CMakeFiles/boot.dir/boot.cpp.o: ../src/Windows/ShowMessage.hpp
@@ -7643,6 +7642,7 @@ src/CMakeFiles/boot.dir/boot.cpp.o: /usr/include/gtkmm-3.0/gtkmm/childpropertypr
 src/CMakeFiles/boot.dir/boot.cpp.o: /usr/include/gtkmm-3.0/gtkmm/childpropertyproxy_base.h
 src/CMakeFiles/boot.dir/boot.cpp.o: /usr/include/gtkmm-3.0/gtkmm/clipboard.h
 src/CMakeFiles/boot.dir/boot.cpp.o: /usr/include/gtkmm-3.0/gtkmm/combobox.h
+src/CMakeFiles/boot.dir/boot.cpp.o: /usr/include/gtkmm-3.0/gtkmm/comboboxtext.h
 src/CMakeFiles/boot.dir/boot.cpp.o: /usr/include/gtkmm-3.0/gtkmm/container.h
 src/CMakeFiles/boot.dir/boot.cpp.o: /usr/include/gtkmm-3.0/gtkmm/editable.h
 src/CMakeFiles/boot.dir/boot.cpp.o: /usr/include/gtkmm-3.0/gtkmm/entry.h

@@ -9,7 +9,6 @@ src/CMakeFiles/boot.dir/MainApplication.cpp.o
  /home/dokel/Workspace/BotGUI/src/Widgets/CustomTreeView.hpp
  /home/dokel/Workspace/BotGUI/src/Widgets/LastMsgsTreeView.hpp
  /home/dokel/Workspace/BotGUI/src/Widgets/MsgControlsPane.hpp
- /home/dokel/Workspace/BotGUI/src/Widgets/MsgPriorityChooser.hpp
  /home/dokel/Workspace/BotGUI/src/Widgets/RecipientsPane.hpp
  /home/dokel/Workspace/BotGUI/src/Widgets/RecipientsTreeView.hpp
  /home/dokel/Workspace/BotGUI/src/Windows/ShowMessage.hpp
@@ -789,6 +788,7 @@ src/CMakeFiles/boot.dir/MainApplication.cpp.o
  /usr/include/gtkmm-3.0/gtkmm/childpropertyproxy_base.h
  /usr/include/gtkmm-3.0/gtkmm/clipboard.h
  /usr/include/gtkmm-3.0/gtkmm/combobox.h
+ /usr/include/gtkmm-3.0/gtkmm/comboboxtext.h
  /usr/include/gtkmm-3.0/gtkmm/container.h
  /usr/include/gtkmm-3.0/gtkmm/editable.h
  /usr/include/gtkmm-3.0/gtkmm/entry.h
@@ -933,7 +933,6 @@ src/CMakeFiles/boot.dir/MainWindow.cpp.o
  /home/dokel/Workspace/BotGUI/src/Widgets/CustomTreeView.hpp
  /home/dokel/Workspace/BotGUI/src/Widgets/LastMsgsTreeView.hpp
  /home/dokel/Workspace/BotGUI/src/Widgets/MsgControlsPane.hpp
- /home/dokel/Workspace/BotGUI/src/Widgets/MsgPriorityChooser.hpp
  /home/dokel/Workspace/BotGUI/src/Widgets/RecipientsPane.hpp
  /home/dokel/Workspace/BotGUI/src/Widgets/RecipientsTreeView.hpp
  /home/dokel/Workspace/BotGUI/src/Windows/ShowMessage.hpp
@@ -1678,6 +1677,7 @@ src/CMakeFiles/boot.dir/MainWindow.cpp.o
  /usr/include/gtkmm-3.0/gtkmm/childpropertyproxy_base.h
  /usr/include/gtkmm-3.0/gtkmm/clipboard.h
  /usr/include/gtkmm-3.0/gtkmm/combobox.h
+ /usr/include/gtkmm-3.0/gtkmm/comboboxtext.h
  /usr/include/gtkmm-3.0/gtkmm/container.h
  /usr/include/gtkmm-3.0/gtkmm/dialog.h
  /usr/include/gtkmm-3.0/gtkmm/editable.h
@@ -3468,7 +3468,6 @@ src/CMakeFiles/boot.dir/Widgets/MsgControlsPane.cpp.o
  /home/dokel/Workspace/BotGUI/src/Widgets/LastMsgsTreeView.hpp
  /home/dokel/Workspace/BotGUI/src/Widgets/MsgControlsPane.cpp
  /home/dokel/Workspace/BotGUI/src/Widgets/MsgControlsPane.hpp
- /home/dokel/Workspace/BotGUI/src/Widgets/MsgPriorityChooser.hpp
  /home/dokel/Workspace/BotGUI/src/Widgets/RecipientsTreeView.hpp
  /home/dokel/Workspace/BotGUI/src/Windows/ShowMessage.hpp
  /home/dokel/Workspace/BotGUI/src/util/IconsLoader.hpp
@@ -4211,6 +4210,7 @@ src/CMakeFiles/boot.dir/Widgets/MsgControlsPane.cpp.o
  /usr/include/gtkmm-3.0/gtkmm/childpropertyproxy_base.h
  /usr/include/gtkmm-3.0/gtkmm/clipboard.h
  /usr/include/gtkmm-3.0/gtkmm/combobox.h
+ /usr/include/gtkmm-3.0/gtkmm/comboboxtext.h
  /usr/include/gtkmm-3.0/gtkmm/container.h
  /usr/include/gtkmm-3.0/gtkmm/editable.h
  /usr/include/gtkmm-3.0/gtkmm/entry.h
@@ -6862,7 +6862,6 @@ src/CMakeFiles/boot.dir/boot.cpp.o
  /home/dokel/Workspace/BotGUI/src/Widgets/CustomTreeView.hpp
  /home/dokel/Workspace/BotGUI/src/Widgets/LastMsgsTreeView.hpp
  /home/dokel/Workspace/BotGUI/src/Widgets/MsgControlsPane.hpp
- /home/dokel/Workspace/BotGUI/src/Widgets/MsgPriorityChooser.hpp
  /home/dokel/Workspace/BotGUI/src/Widgets/RecipientsPane.hpp
  /home/dokel/Workspace/BotGUI/src/Widgets/RecipientsTreeView.hpp
  /home/dokel/Workspace/BotGUI/src/Windows/ShowMessage.hpp
@@ -7644,6 +7643,7 @@ src/CMakeFiles/boot.dir/boot.cpp.o
  /usr/include/gtkmm-3.0/gtkmm/childpropertyproxy_base.h
  /usr/include/gtkmm-3.0/gtkmm/clipboard.h
  /usr/include/gtkmm-3.0/gtkmm/combobox.h
+ /usr/include/gtkmm-3.0/gtkmm/comboboxtext.h
  /usr/include/gtkmm-3.0/gtkmm/container.h
  /usr/include/gtkmm-3.0/gtkmm/editable.h
  /usr/include/gtkmm-3.0/gtkmm/entry.h

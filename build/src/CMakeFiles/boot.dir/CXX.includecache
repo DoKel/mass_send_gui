@@ -69,6 +69,8 @@ Message.hpp
 /home/dokel/Workspace/BotGUI/src/Models/Message.hpp
 sstream
 -
+iostream
+-
 ../util/IconsLoader.hpp
 /home/dokel/Workspace/BotGUI/src/util/IconsLoader.hpp
 
@@ -125,6 +127,8 @@ MsgControlsPane.hpp
 /home/dokel/Workspace/BotGUI/src/Widgets/MsgControlsPane.hpp
 ../util/IconsLoader.hpp
 /home/dokel/Workspace/BotGUI/src/util/IconsLoader.hpp
+../Models/Message.hpp
+/home/dokel/Workspace/BotGUI/src/Models/Message.hpp
 gtkmm/image.h
 -
 gdkmm/pixbuf.h
@@ -133,8 +137,8 @@ gdkmm/pixbuf.h
 /home/dokel/Workspace/BotGUI/src/Widgets/MsgControlsPane.hpp
 LastMsgsTreeView.hpp
 /home/dokel/Workspace/BotGUI/src/Widgets/LastMsgsTreeView.hpp
-MsgPriorityChooser.hpp
-/home/dokel/Workspace/BotGUI/src/Widgets/MsgPriorityChooser.hpp
+gtkmm/comboboxtext.h
+/home/dokel/Workspace/BotGUI/src/Widgets/gtkmm/comboboxtext.h
 gtkmm/box.h
 -
 gtkmm/button.h
@@ -149,10 +153,8 @@ glibmm/ustring.h
 -
 ../Windows/ShowMessage.hpp
 /home/dokel/Workspace/BotGUI/src/Windows/ShowMessage.hpp
-
-/home/dokel/Workspace/BotGUI/src/Widgets/MsgPriorityChooser.hpp
-gtkmm/combobox.h
--
+../Models/Message.hpp
+/home/dokel/Workspace/BotGUI/src/Models/Message.hpp
 
 /home/dokel/Workspace/BotGUI/src/Widgets/RecipientsPane.cpp
 RecipientsPane.hpp
@@ -6700,6 +6702,14 @@ gtkmm/cellrenderer.h
 gtkmm/treeview.h
 -
 gtkmm/enums.h
+-
+
+/usr/include/gtkmm-3.0/gtkmm/comboboxtext.h
+glibmm/ustring.h
+-
+sigc++/sigc++.h
+-
+gtkmm/combobox.h
 -
 
 /usr/include/gtkmm-3.0/gtkmm/container.h
