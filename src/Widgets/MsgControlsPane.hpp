@@ -41,8 +41,6 @@ protected:
 				Gtk::Button sendButton;
 				Gtk::ComboBoxText priorityChooser;
 
-	std::unique_ptr<ShowMessage> showMessageWindow;
-
 	static const int SPACING;
 	static const int NEW_MSG_MODS_SPACING;
 
