@@ -1,5 +1,6 @@
 #include "MsgControlsPane.hpp"
 #include "../util/IconsLoader.hpp"
+#include "../Models/Message.hpp"
 #include <gtkmm/image.h>
 #include <gdkmm/pixbuf.h>
 
@@ -56,6 +57,15 @@ sendAndControlsBox(Gtk::ORIENTATION_HORIZONTAL)
 	auto img = Gtk::manage(new Gtk::Image()); //TODO is that correct? Will it manage?..
 	img->set(IconsLoader::getIcon(IconsLoader::IconName::SEND));
 	sendButton.set_image(*img);
+	sendAndControlsBox.pack_start(priorityChooser, Gtk::PACK_EXPAND_PADDING);
+
+	//Fill the combo:
+	for(auto prior: Message::PriorityUtils::getAllPriorities()){
+		priorityChooser.append(Message::PriorityUtils::toString(prior));
+	}
+	priorityChooser.set_active(0);
+
+
 
 	/* Connect Pane's signals*/
 	this->signal_show().connect(sigc::mem_fun(*this,
@@ -129,5 +139,9 @@ MsgControlsPane::signal_send_button_clicked(){
 }
 
 void MsgControlsPane::on_send_button_clicked(){
-	sendButtonClickedSignal.emit(getNewMsgText());
+	sendButtonClickedSignal.emit(getNewMsgText(), getPriority());
+}
+
+Message::Priority MsgControlsPane::getPriority(){
+	return Message::PriorityUtils::fromString(priorityChooser.get_active_text());
 }

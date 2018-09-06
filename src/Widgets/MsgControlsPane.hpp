@@ -2,7 +2,7 @@
 #define MSG_CONTROLS_PANE
 
 #include "LastMsgsTreeView.hpp"
-#include "MsgPriorityChooser.hpp"
+#include "gtkmm/comboboxtext.h"
 #include <gtkmm/box.h>
 #include <gtkmm/button.h>
 #include <gtkmm/scrolledwindow.h>
@@ -10,6 +10,7 @@
 #include <gtkmm/textview.h>
 #include <glibmm/ustring.h>
 #include "../Windows/ShowMessage.hpp"
+#include "../Models/Message.hpp"
 
 
 class MsgControlsPane: public Gtk::Box
@@ -22,9 +23,10 @@ public:
 	static const int minWidth;
 
 	Glib::ustring getNewMsgText();
+	Message::Priority getPriority();
 	void addNewMsg(Message msg);
 
-	typedef sigc::signal<void, Glib::ustring> SendButtonClickedSignalType;
+	typedef sigc::signal<void, Glib::ustring, Message::Priority> SendButtonClickedSignalType;
 	SendButtonClickedSignalType signal_send_button_clicked();
 
 protected:
@@ -37,7 +39,7 @@ protected:
 			Gtk::TextView newMsgText;
 			Gtk::Box sendAndControlsBox;
 				Gtk::Button sendButton;
-				//MsgPriorityChooser priorityChooser;
+				Gtk::ComboBoxText priorityChooser;
 
 	std::unique_ptr<ShowMessage> showMessageWindow;
 

@@ -14,7 +14,9 @@ public:
 
 	class PriorityUtils{
 	public:
+		static std::vector<Priority> getAllPriorities();
 		static Glib::ustring toString(Priority);
+		static Priority fromString(Glib::ustring);
 		static Glib::RefPtr<Gdk::Pixbuf> getIcon(Priority);
 	};
 

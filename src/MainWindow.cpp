@@ -81,7 +81,7 @@ typename MainWindow::SendSignalType MainWindow::signal_send(){
 	return sendSignal;
 }
 
-void MainWindow::on_send_button_clicked(Glib::ustring msgText){
+void MainWindow::on_send_button_clicked(Glib::ustring msgText, Message::Priority prior){
 	std::vector<Glib::ustring> recipients = recipientsPane.getRecipients();
 
 	if(recipients.size() == 0){
@@ -109,7 +109,7 @@ void MainWindow::on_send_button_clicked(Glib::ustring msgText){
 	auto date = Glib::Date(timePtr->tm_mday,
 		Glib::Date::Month(1+timePtr->tm_mon), 1900+timePtr->tm_year);
 
-	Message msg = Message(Message::Priority::REGULAR, recipients, msgText, date);
+	Message msg = Message(prior, recipients, msgText, date);
 
 	msgControlsPane.addNewMsg(msg); //TODO move out, add check if success
 

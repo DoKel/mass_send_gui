@@ -38,7 +38,7 @@ protected:
 	bool on_release_odd_event(GdkEventButton*);
 	bool on_configure_event(GdkEventConfigure*);
 
-	void on_send_button_clicked(Glib::ustring);
+	void on_send_button_clicked(Glib::ustring, Message::Priority);
 
 	void fix_pane_state(int new_width = -1);
 };

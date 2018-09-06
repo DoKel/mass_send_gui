@@ -1,5 +1,6 @@
 #include "Message.hpp"
 #include <sstream>
+#include <iostream> //TODO remove
 #include "../util/IconsLoader.hpp"
 
 Message::Message():
@@ -86,4 +87,29 @@ Glib::RefPtr<Gdk::Pixbuf> Message::PriorityUtils::getIcon(Priority prior){
 			return IconsLoader::getIcon(IconsLoader::IconName::REGULAR);
 			break;
 	}
+}
+
+std::vector<Message::Priority> Message::PriorityUtils::getAllPriorities(){
+	std::vector<Message::Priority> ret;
+
+	ret.push_back(Message::Priority::REGULAR);
+	ret.push_back(Message::Priority::INFO);
+	ret.push_back(Message::Priority::IMPORTANT);
+
+	return ret;
+}
+
+Message::Priority Message::PriorityUtils::fromString(Glib::ustring str){
+	str = str.lowercase();
+	std::cout << str;
+
+	if(str == "info"){
+		return Message::Priority::INFO;
+	}
+
+	if(str == "important"){
+		return Message::Priority::IMPORTANT;
+	}
+
+	return  Message::Priority::REGULAR;
 }

@@ -45,6 +45,7 @@ recipientsTreeView(getRecipientsList())
 	auto img_s = Gtk::manage(new Gtk::Image()); //TODO is that correct? Will it manage?..
 	img_s->set(IconsLoader::getIcon(IconsLoader::IconName::SETTINGS));
 	settingsButton.set_image(*img_s);
+	settingsButton.set_sensitive(false);
 
 	/* Connect signals of buttons for selection control */
 	checkAllButton.signal_clicked().connect(sigc::mem_fun(recipientsTreeView,
